@@ -1,8 +1,6 @@
 # 💾 LeetCode-SQL-50-Solutions
 
-![SQL Practice](https://cdn-icons-png.flaticon.com/512/2772/2772128.png)
-
-![Project Banner](https://i.ibb.co/xxxxx/your-image-name.png)
+![Project Banner](https://github.com/a7medhazem/LeetCode-SQL-50/blob/main/banner_image.png?raw=true)
 
 This repository contains my solutions to the Top 50 SQL Questions on LeetCode.  
 Each solution is written clearly to help understand SQL concepts and improve query skills.
