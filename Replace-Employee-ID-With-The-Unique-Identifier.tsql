@@ -1,0 +1,4 @@
+/* Write your T-SQL query statement below */
+Select COALESCE(unique_id,NULL) as unique_id ,name 
+from Employees E left outer join EmployeeUNI U
+on E.id=U.id 
