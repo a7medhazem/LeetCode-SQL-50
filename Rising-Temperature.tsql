@@ -1,4 +1,8 @@
 /* Write your T-SQL query statement below */
+-- hint:
+-- to calculate difference in days:
+-- DATEDIFF(day, start_date, end_date) = عدد_الأيام_المرغوب
+
 SELECT id
 FROM (
     SELECT id, temperature,recordDate,
