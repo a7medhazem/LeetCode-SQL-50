@@ -1,11 +1,20 @@
 /* Write your T-SQL query statement below */
 
---**************************************************************************
+
 select  b.id
 from Weather a
 inner join Weather b
 on DATEDIFF(day, a.recordDate, b.recordDate) = 1
 WHERE b.temperature > a.temperature;
 
+--********************* another solution ***********************
 
+SELECT id
+FROM (
+    SELECT id, temperature,recordDate,
+           LAG(temperature) OVER (ORDER BY recordDate) AS prev_temp,
+           LAG(recordDate) OVER (ORDER BY recordDate) AS datee
 
+    FROM Weather
+) AS t
+WHERE (temperature > prev_temp)   AND DATEDIFF(day, datee, recordDate) = 1
