@@ -1,14 +1,11 @@
 /* Write your T-SQL query statement below */
--- hint:
--- to calculate difference in days:
--- DATEDIFF(day, start_date, end_date) = عدد_الأيام_المرغوب
 
-SELECT id
-FROM (
-    SELECT id, temperature,recordDate,
-           LAG(temperature) OVER (ORDER BY recordDate) AS prev_temp,
-           LAG(recordDate) OVER (ORDER BY recordDate) AS datee
+--**************************************************************************
+select  b.id
+from Weather a
+inner join Weather b
+on DATEDIFF(day, a.recordDate, b.recordDate) = 1
+WHERE b.temperature > a.temperature;
 
-    FROM Weather
-) AS t
-WHERE (temperature > prev_temp)   AND DATEDIFF(day, datee, recordDate) = 1
+
+
