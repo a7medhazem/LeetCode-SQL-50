@@ -1,0 +1,13 @@
+/* Write your T-SQL query statement below */
+
+--(select count(action)from Confirmations where action ='confirmed' group by user_id )
+
+select s.user_id ,
+ROUND(
+     ISNULL( COUNT(CASE WHEN c.action = 'confirmed' THEN 1 END) * 1.0 /
+     NULLIF( COUNT(c.action), 0)   ,0)    
+         ,2) 
+as confirmation_rate 
+from Signups s left outer join Confirmations c
+on s.user_id = c.user_id 
+group by s.user_id;
